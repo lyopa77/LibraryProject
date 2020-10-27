@@ -29,7 +29,7 @@ public class UserStoriesDemo extends BaseTest {
     //AC1. 	Student should be able to login with valid credentials
     //Andrei
     @Test
-    public void Login_Valid_Credentials(){
+    public void Login_Valid_Credentials () throws InterruptedException {
         //link
         driver.get("http://library2.cybertekschool.com/login.html");
         //email
@@ -38,17 +38,18 @@ public class UserStoriesDemo extends BaseTest {
         driver.findElement(By.id("inputPassword")).sendKeys("Jg2orVoF");
         //click to the button "Sign in"
         driver.findElement(By.xpath("//button[@type='submit']")).click();
+        Thread.sleep(3000);
         //this line gives me actual title of the page
         String actualTitle = driver.getTitle();
         //System.out.println (actualTitle);
-        String expectedTitle = "login - library";
+        String expectedTitle = "library";
         //Assert
         Assert.assertEquals(expectedTitle.toLowerCase(),actualTitle.toLowerCase());
     }
 
 
-    //US 1. As a student I should be able to login "Library" application
-    //AC2  Student should not be able to login with invalid credentials
+    //US 1. As a student I should be able to log in "Library" application
+    //AC2  Student should not be able to log in with invalid credentials
     //Alexey
     @Test
     public void loginAttempt() throws InterruptedException {
@@ -72,15 +73,15 @@ public class UserStoriesDemo extends BaseTest {
     }
 
     //US 2. As a student I should be able to borrow a book from "Library" application
-    //AC2  User should be able to to choose number of shown of records
+    //AC2  User should be able to choose number of shown  records
     //Ana
     @Test
-    public void show_records(){
+    public void show_records() throws InterruptedException {
 
         driver.findElement(By.id("inputEmail")).sendKeys("student64@library");
         driver.findElement(By.id("inputPassword")).sendKeys("pbdQAvkN");
         driver.findElement(By.xpath("//button[@class='btn btn-lg btn-primary btn-block']")).click();
-
+        Thread.sleep(3000);
         homePage = new HomePage(driver);
         homePage.clickRecord();
 
@@ -91,7 +92,7 @@ public class UserStoriesDemo extends BaseTest {
     //AC1	User should be able to choose any category
     //Busra O
     @Test
-    public void book_categories(){
+    public void book_categories() throws InterruptedException {
 
         driver.findElement(By.id("inputEmail")).sendKeys("student64@library");
         driver.findElement(By.id("inputPassword")).sendKeys("pbdQAvkN");
@@ -100,6 +101,7 @@ public class UserStoriesDemo extends BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //click "Book Categories"
         driver.findElement(By.id("book_categories")).click();
+        Thread.sleep(3000);
        // BrowserUtils.wait(2);
         // choose a category
         driver.findElement(By.xpath("//option[@value='14']")).click();
