@@ -25,9 +25,9 @@ public class UserStoriesDemo extends BaseTest {
         driver.get("http://library2.cybertekschool.com/login.html");
 }
 
-    //US 1. As a student I should be able to login "Library" application
+    //US 1. As a student I should be able to log into "Library" application
     //AC1. 	Student should be able to login with valid credentials
-    //Andrei
+
     @Test
     public void Login_Valid_Credentials () throws InterruptedException {
         //link
@@ -50,7 +50,7 @@ public class UserStoriesDemo extends BaseTest {
 
     //US 1. As a student I should be able to log in "Library" application
     //AC2  Student should not be able to log in with invalid credentials
-    //Alexey
+
     @Test
     public void loginAttempt() throws InterruptedException {
         //  WebElement email = driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/label"));
@@ -74,7 +74,7 @@ public class UserStoriesDemo extends BaseTest {
 
     //US 2. As a student I should be able to borrow a book from "Library" application
     //AC2  User should be able to choose number of shown  records
-    //Ana
+
     @Test
     public void show_records() throws InterruptedException {
 
@@ -90,7 +90,7 @@ public class UserStoriesDemo extends BaseTest {
 
     //US 2. As a student I should be able to borrow a book from "Library" application
     //AC1	User should be able to choose any category
-    //Busra O
+
     @Test
     public void book_categories() throws InterruptedException {
 
@@ -102,10 +102,11 @@ public class UserStoriesDemo extends BaseTest {
         //click "Book Categories"
         driver.findElement(By.id("book_categories")).click();
         Thread.sleep(3000);
-       // BrowserUtils.wait(2);
+
         // choose a category
         driver.findElement(By.xpath("//option[@value='14']")).click();
-       // BrowserUtils.wait(2);
+        Thread.sleep(2000);
+
     }
 
 
